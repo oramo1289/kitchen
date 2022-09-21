@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import "./App.css";
 import { useLoadProducts } from "./hooks/useLoadProducts";
-import Products from "./Pages/Products";
+import Products from "./pages/Products";
 
 function App() {
   const { loadProducts, loading } = useLoadProducts();
