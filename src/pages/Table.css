@@ -1,0 +1,41 @@
+.table {
+  display: table;
+  border: 3px solid #1e2f97;
+  border-radius: 6px;
+  max-width: 1270px;
+  margin: auto;
+}
+
+.table__caption h2 {
+  text-align: center;
+  font-size: 30px;
+  color: #1e2f97;
+  margin: 1% 0;
+}
+
+.table__header {
+  display: table-header-group;
+  background-color: #1aa7ec;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.table__body {
+  display: table-row-group;
+}
+
+.search {
+  max-width: 1270px;
+  margin: 1% auto;
+}
+
+.search__button--width {
+  max-width: 400px;
+}
+
+@media (max-width: 420px) {
+  .table__header__cell--description,
+  .table__body__row__cell--description {
+    display: none;
+  }
+}

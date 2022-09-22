@@ -1,6 +1,7 @@
 import { FC } from "react";
 
-import "./EmptyElement";
+//Styles
+import "./EmptyElement.css";
 
 const EmptyElement: FC<{}> = () => {
   return (

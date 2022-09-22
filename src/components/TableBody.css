@@ -1,0 +1,15 @@
+.table__body__row {
+  display: table-row;
+}
+
+.table__body__row:nth-child(odd) {
+  background-color: #4adede;
+}
+
+.table__body__row__cell {
+  display: table-cell;
+  width: 10%;
+  padding: 5px;
+  text-align: center;
+  vertical-align: middle;
+}

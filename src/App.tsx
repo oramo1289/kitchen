@@ -1,8 +1,11 @@
 import { useEffect } from "react";
+
+//Styles
 import "./App.css";
-import Table from "./components/Table";
+//Components
+import Table from "./pages/Table";
+//Custom Hooks
 import { useLoadProducts } from "./hooks/useLoadProducts";
-// import Products from "./pages/Products";
 
 function App() {
   const { loadProducts, loading } = useLoadProducts();

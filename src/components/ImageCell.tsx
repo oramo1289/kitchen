@@ -1,5 +1,6 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
+//Styles
 import "./ImageCell.css";
 
 export interface ImageCellProps {

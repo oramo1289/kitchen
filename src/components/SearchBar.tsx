@@ -1,13 +1,16 @@
 import React, { FC, useState } from "react";
 
+//Styles
 import "./SearchBar.css";
 
 export interface SearchBarProps {
+  classNameValue?: string;
   placeholder?: string;
   onChange?: (value: string) => void;
 }
 
 const SearchBar: FC<SearchBarProps> = ({
+  classNameValue = "",
   placeholder = "Search value",
   onChange,
 }) => {
@@ -27,7 +30,7 @@ const SearchBar: FC<SearchBarProps> = ({
   };
 
   return (
-    <div className={`${"search_button"} `}>
+    <div className={`${"search__button"} ${classNameValue}`}>
       <input
         onChange={onChangeHandler}
         value={value}
@@ -40,8 +43,8 @@ const SearchBar: FC<SearchBarProps> = ({
           type="button"
           className={[
             "material-icons",
-            "search_button__icon_button",
-            "search_button__icon_button--cancel_icon",
+            "search__button__icon_button",
+            "search__button__icon_button--cancel_icon",
           ].join(" ")}
           onClick={onCancelHandler}
         >
@@ -53,8 +56,8 @@ const SearchBar: FC<SearchBarProps> = ({
         type="button"
         className={[
           "material-icons",
-          "search_button__icon_button",
-          "search_button__icon_button--search_icon",
+          "search__button__icon_button",
+          "search__button__icon_button--search_icon",
         ].join(" ")}
         onClick={onSearch}
       >

@@ -1,9 +1,14 @@
 import { FC, useState } from "react";
-import { useProductsContext } from "../hooks/useProductsContext";
-import ImageCell from "./ImageCell";
-import SearchBar from "./SearchBar";
 
+//Context
+import { useProductsContext } from "../hooks/useProductsContext";
+//Styles
 import "./Table.css";
+//Components
+import SearchBar from "../components/SearchBar";
+import EmptyElement from "../components/EmptyElement";
+import TableHeader from "../components/TableHeader";
+import TableBody from "../components/TableBody";
 
 export interface TableProps {}
 
@@ -30,6 +35,11 @@ const Table: FC<TableProps> = () => {
     setSearchValue(value);
   };
 
+  const handleColumnSort = () => {
+    setDesc(!desc);
+    setKey(key);
+  };
+
   const handleCompare = (a: { [x: string]: any }, b: { [x: string]: any }) => {
     if (!desc && (key === "code" || key === "description"))
       return a[key].localeCompare(b[key]);
@@ -46,58 +56,47 @@ const Table: FC<TableProps> = () => {
 
   return (
     <div className="container">
+      <div className="table__caption">
+        <h2> Product Table</h2>
+      </div>
       <div className="search">
-        <p>Search:</p>
-        <SearchBar onChange={handleSearchValue} />
+        <SearchBar
+          classNameValue="search__button--width"
+          onChange={handleSearchValue}
+        />
       </div>
       <div className="table">
-        <div className="table__caption">Product Table</div>
         <div className="table__header">
           {state.products &&
+            products?.length !== 0 &&
             Object.keys(products![0]).map((key) => (
-              <div key={key} className="table__header__cell">
-                <div className={"cell-container"}>
-                  <span>{key}</span>
-                  <span
-                    className="material-icons"
-                    onClick={() => {
-                      setDesc(!desc);
-                      setKey(key);
-                    }}
-                  >
-                    {desc ? "keyboard_arrow_up" : "keyboard_arrow_down"}
-                  </span>
-                </div>
-              </div>
+              <TableHeader
+                key={key}
+                columnName={key}
+                handleSort={handleColumnSort}
+                desc={desc}
+              />
             ))}
         </div>
 
         <div className="table__body">
           {state.products &&
+            products?.length !== 0 &&
             handleSortTable()?.map((product) => (
-              <div key={product.code} className="table__body__row">
-                <div className={`${"table__body__row__cell"}`}>
-                  {product.code}
-                </div>
-                <div className={`${"table__body__row__cell"}`}>
-                  {product.position}
-                </div>
-                <div className={`${"table__body__row__cell"}`}>
-                  {product.quantity}
-                </div>
-                <div className={`${"table__body__row__cell"}`}>
-                  <ImageCell imageName={product.image} />
-                </div>
-                <div className={`${"table__body__row__cell"}`}>
-                  ${product.price}
-                </div>
-                <div className={`${"table__body__row__cell"}`}>
-                  {product.description}
-                </div>
-              </div>
+              <TableBody
+                key={product.code}
+                code={product.code}
+                position={product.position}
+                quantity={product.quantity}
+                image={product.image}
+                price={product.price}
+                description={product.description}
+              />
             ))}
         </div>
       </div>
+
+      {!state.products || (products?.length === 0 && <EmptyElement />)}
     </div>
   );
 };
