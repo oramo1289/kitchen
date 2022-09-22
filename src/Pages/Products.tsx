@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import Card from "../components/Card";
 import EmptyElement from "../components/EmptyElement";
 import SearchBar from "../components/SearchBar";

@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import "./App.css";
+import Table from "./components/Table";
 import { useLoadProducts } from "./hooks/useLoadProducts";
-import Products from "./pages/Products";
+// import Products from "./pages/Products";
 
 function App() {
   const { loadProducts, loading } = useLoadProducts();
@@ -11,7 +12,7 @@ function App() {
     // eslint-disable-next-line
   }, []);
 
-  return <div className="app">{!loading && <Products />}</div>;
+  return <div className="app">{!loading && <Table />}</div>;
 }
 
 export default App;

@@ -11,6 +11,8 @@ export interface Product {
   image: string;
   price: number;
   description: string;
+  position?: number;
+  quantity?: number;
 }
 
 export interface ProductsAction {
