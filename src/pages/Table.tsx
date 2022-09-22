@@ -16,7 +16,7 @@ const Table: FC<TableProps> = () => {
   const { state } = useProductsContext();
   const [searchValue, setSearchValue] = useState<string>("");
   const [desc, setDesc] = useState<boolean>(false);
-  const [key, setKey] = useState<string>("position");
+  const [columnName, setColumnName] = useState<string>("position");
 
   let products =
     searchValue !== ""
@@ -37,17 +37,19 @@ const Table: FC<TableProps> = () => {
 
   const handleColumnSort = () => {
     setDesc(!desc);
-    setKey(key);
+    setColumnName(columnName);
   };
 
   const handleCompare = (a: { [x: string]: any }, b: { [x: string]: any }) => {
-    if (!desc && (key === "code" || key === "description"))
-      return a[key].localeCompare(b[key]);
+    if (!desc && (columnName === "code" || columnName === "description"))
+      return a[columnName].localeCompare(b[columnName]);
 
-    if (desc && (key === "code" || key === "description"))
-      return b[key].localeCompare(a[key]);
+    if (desc && (columnName === "code" || columnName === "description"))
+      return b[columnName].localeCompare(a[columnName]);
 
-    return !desc ? a[key] - b[key] : b[key] - a[key];
+    return !desc
+      ? a[columnName] - b[columnName]
+      : b[columnName] - a[columnName];
   };
 
   const handleSortTable = () => {
