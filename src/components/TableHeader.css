@@ -4,3 +4,7 @@
   text-align: center;
   border-bottom: 1px solid black;
 }
+
+.table__header__cell__name {
+  vertical-align: super;
+}

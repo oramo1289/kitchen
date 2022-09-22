@@ -24,7 +24,7 @@ const TableHeader: FC<TableHeaderProps> = ({
                 }`}
     >
       <div>
-        <span>{columnName}</span>
+        <span className={`${"table__header__cell__name"}`}>{columnName}</span>
         <span className="material-icons" onClick={handleSort}>
           {desc ? "keyboard_arrow_up" : "keyboard_arrow_down"}
         </span>
