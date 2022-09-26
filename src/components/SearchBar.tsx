@@ -6,7 +6,7 @@ import "./SearchBar.css";
 export interface SearchBarProps {
   classNameValue?: string;
   placeholder?: string;
-  onChange?: (value: string) => void;
+  onChange: (value: string) => void;
 }
 
 const SearchBar: FC<SearchBarProps> = ({
@@ -41,11 +41,11 @@ const SearchBar: FC<SearchBarProps> = ({
       {value.length > 0 && (
         <button
           type="button"
-          className={[
-            "material-icons",
-            "search__button__icon_button",
-            "search__button__icon_button--cancel_icon",
-          ].join(" ")}
+          className={`
+            ${"material-icons"}
+            ${"search__button__icon_button"}
+            ${"search__button__icon_button--cancel_icon"}
+          `}
           onClick={onCancelHandler}
         >
           close
@@ -54,11 +54,11 @@ const SearchBar: FC<SearchBarProps> = ({
 
       <button
         type="button"
-        className={[
-          "material-icons",
-          "search__button__icon_button",
-          "search__button__icon_button--search_icon",
-        ].join(" ")}
+        className={`
+            ${"material-icons"}
+            ${"search__button__icon_button"}
+            ${"search__button__icon_button--search_icon"}
+          `}
         onClick={onSearch}
       >
         search

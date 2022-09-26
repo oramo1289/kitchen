@@ -1,5 +1,5 @@
 import { useReducer, createContext, Dispatch } from "react";
-import { ProductsState } from "../model/model";
+import { ProductsAction, ProductsState } from "../model/model";
 import { productsReducer } from "../reducer/ProductsReducer";
 
 export interface ProductsContextProviderProps {
@@ -12,7 +12,7 @@ const initialState = {
 
 export const ProductsContext = createContext<{
   state: ProductsState;
-  dispatch: Dispatch<any>;
+  dispatch: Dispatch<ProductsAction>;
 }>({
   state: initialState,
   dispatch: () => null,

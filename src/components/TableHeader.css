@@ -8,3 +8,9 @@
 .table__header__cell__name {
   vertical-align: super;
 }
+
+@media (max-width: 420px) {
+  .table__header__cell--description {
+    display: none;
+  }
+}

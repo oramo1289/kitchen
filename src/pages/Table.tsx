@@ -9,13 +9,14 @@ import SearchBar from "../components/SearchBar";
 import EmptyElement from "../components/EmptyElement";
 import TableHeader from "../components/TableHeader";
 import TableBody from "../components/TableBody";
+import { Product } from "../model/model";
 
 export interface TableProps {}
 
 const Table: FC<TableProps> = () => {
   const { state } = useProductsContext();
   const [searchValue, setSearchValue] = useState<string>("");
-  const [desc, setDesc] = useState<boolean>(false);
+  const [desc, setDesc] = useState<boolean>(true);
   const [columnName, setColumnName] = useState<string>("position");
 
   let products =
@@ -29,7 +30,7 @@ const Table: FC<TableProps> = () => {
               .toLocaleLowerCase()
               .includes(searchValue.toLocaleLowerCase())
         )
-      : state.products;
+      : (state.products as Product[]);
 
   const handleSearchValue = (value: string): void => {
     setSearchValue(value);
@@ -40,16 +41,21 @@ const Table: FC<TableProps> = () => {
     setColumnName(value);
   };
 
-  const handleCompare = (a: { [x: string]: any }, b: { [x: string]: any }) => {
-    if (!desc && (columnName === "code" || columnName === "description"))
-      return a[columnName].localeCompare(b[columnName]);
-
-    if (desc && (columnName === "code" || columnName === "description"))
-      return b[columnName].localeCompare(a[columnName]);
-
-    return !desc
-      ? a[columnName] - b[columnName]
-      : b[columnName] - a[columnName];
+  const handleCompare = (productA: Product, productB: Product) => {
+    let comparison = 0;
+    if (
+      productA[columnName as keyof typeof productA]! <
+      productB[columnName as keyof typeof productB]!
+    ) {
+      comparison = -1;
+    }
+    if (
+      productA[columnName as keyof typeof productA]! >
+      productB[columnName as keyof typeof productB]!
+    ) {
+      comparison = 1;
+    }
+    return desc ? comparison : comparison * -1;
   };
 
   const handleSortTable = () => {

@@ -26,7 +26,7 @@ const TableHeader: FC<TableHeaderProps> = ({
       <div>
         <span className={`${"table__header__cell__name"}`}>{columnName}</span>
         <span className="material-icons" onClick={() => handleSort(columnName)}>
-          {desc ? "keyboard_arrow_up" : "keyboard_arrow_down"}
+          {desc ? "keyboard_arrow_down" : "keyboard_arrow_up"}
         </span>
       </div>
     </div>
