@@ -35,9 +35,9 @@ const Table: FC<TableProps> = () => {
     setSearchValue(value);
   };
 
-  const handleColumnSort = () => {
+  const handleColumnSort = (value: string) => {
     setDesc(!desc);
-    setColumnName(columnName);
+    setColumnName(value);
   };
 
   const handleCompare = (a: { [x: string]: any }, b: { [x: string]: any }) => {
