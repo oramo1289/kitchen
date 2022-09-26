@@ -32,9 +32,7 @@ const Table: FC<TableProps> = () => {
         )
       : (state.products as Product[]);
 
-  const handleSearchValue = (value: string): void => {
-    setSearchValue(value);
-  };
+  const handleSearchValue = (value: string): void => setSearchValue(value);
 
   const handleColumnSort = (value: string) => {
     setDesc(!desc);
@@ -58,9 +56,7 @@ const Table: FC<TableProps> = () => {
     return desc ? comparison : comparison * -1;
   };
 
-  const handleSortTable = () => {
-    return products?.sort(handleCompare);
-  };
+  const handleSortTable = () => products?.sort(handleCompare);
 
   return (
     <div className="container">
