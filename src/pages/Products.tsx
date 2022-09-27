@@ -79,7 +79,7 @@ const Products: FC<{}> = () => {
         direction={direction}
       />
 
-      {width < 450 && (
+      {width <= 450 && (
         <Cards
           handleSortTable={handleSortTable}
           handleOpenModal={handleOpenModal}
@@ -94,7 +94,7 @@ const Products: FC<{}> = () => {
       {width > 450 && selectCode && (
         <Modal codeProp={selectCode} open={open} handleClose={handleClose} />
       )}
-      {width < 450 && selectCode && (
+      {width <= 450 && selectCode && (
         <CustomDrawer
           codeProp={selectCode}
           open={open}

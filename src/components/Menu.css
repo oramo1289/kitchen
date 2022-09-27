@@ -11,7 +11,10 @@
 
 @media (max-width: 450px) {
   .menu {
+    background: #eff8ff;
     justify-content: center;
+    position: sticky;
+    top: 0;
   }
   .menu__option--width {
     margin: 1% auto;
