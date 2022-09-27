@@ -26,7 +26,7 @@ const TableBody: FC<TableBodyProps> = ({
         <div className={`${"table__body__row__cell"}`}>${price}</div>
         <div
           onClick={() => handleOpen(code)}
-          className={`${"table__body__row__cell"} ${"material-icons"}`}
+          className={`${"table__body__row__cell"} ${"table__body__row__cell--description"} ${"material-icons"}`}
         >
           {"open_in_browser"}
         </div>
