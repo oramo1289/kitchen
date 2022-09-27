@@ -3,7 +3,7 @@
   border-radius: 3px;
   display: flex;
   align-items: center;
-  height: 32px;
+  height: 46px;
   box-sizing: content-box;
   background-color: white;
 }
@@ -26,7 +26,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  height: 32px;
+  height: 46px;
   min-height: 30px;
   width: 32px;
   min-width: 30px;

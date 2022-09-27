@@ -23,19 +23,3 @@
 .table__body {
   display: table-row-group;
 }
-
-.search {
-  max-width: 1270px;
-  margin: 1% auto;
-}
-
-.search__button--width {
-  max-width: 400px;
-}
-
-@media (max-width: 420px) {
-  .table__header__cell--description,
-  .table__body__row__cell--description {
-    display: none;
-  }
-}

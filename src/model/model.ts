@@ -8,9 +8,9 @@ export interface ProductsState {
 
 export interface Product {
   code: string;
-  image: string;
   price: number;
-  description: string;
+  image?: string;
+  description?: string;
   position?: number;
   quantity?: number;
 }

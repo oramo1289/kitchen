@@ -1,0 +1,9 @@
+.products {
+  gap: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  margin: 2% 0;
+}

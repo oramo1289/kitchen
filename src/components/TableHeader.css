@@ -9,8 +9,6 @@
   vertical-align: super;
 }
 
-@media (max-width: 420px) {
-  .table__header__cell--description {
-    display: none;
-  }
+.table__header__cell--image {
+  display: none;
 }
