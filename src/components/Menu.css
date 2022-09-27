@@ -1,8 +1,8 @@
 .menu {
-  margin: 1% auto;
   display: flex;
-  justify-content: space-evenly;
   flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
 }
 
 .menu__option--width {
